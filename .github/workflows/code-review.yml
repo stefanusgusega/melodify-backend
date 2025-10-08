@@ -29,8 +29,8 @@ jobs:
       OPENAI_API_ENDPOINT: https://openrouter.ai/api/v1
       MODEL: openai/gpt-oss-20b:free
 
-      LANGUAGE: English
-      PROMPT: Please categorize the following code changes into 3 levels: Need to address immediately, Important but not urgent, and Nitpick.
+      LANGUAGE: "English"
+      PROMPT: "Please categorize the following code changes into 3 levels: Need to address immediately, Important but not urgent, and Nitpick."
       top_p: 1
       temperature: 1
       max_tokens: 10000
