@@ -1,0 +1,21 @@
+{
+    /* Compiler Options for TypeScript */
+    "compilerOptions": {
+        // Specifies module code generation method (Node.js CommonJS)
+        "module": "commonjs",
+        // Enables compatibility between CommonJS and ES Modules
+        "esModuleInterop": true,
+        // Specify ECMAScript target version to compile to
+        "target": "es6",
+        // Sets module resolution strategy used by TypeScript
+        "moduleResolution": "node",
+        // Generates corresponding .map files for debugging
+        "sourceMap": true,
+        // Directory for compiled JavaScript files
+        "outDir": "dist"
+    },
+    /* Include TypeScript library definitions */
+    "lib": [
+        "es2015" // Includes ES2015 (ES6) library definitions
+    ]
+}
