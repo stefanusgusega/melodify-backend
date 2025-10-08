@@ -1,0 +1,36 @@
+# Workflow name that appears in the Actions tab
+name: Code Review
+
+# Define the permissions needed for this workflow
+permissions:
+  # Allow reading repository contents (code, commits, etc)
+  contents: read
+  # Allow writing comments and suggestions on pull requests
+  pull-requests: write
+
+# Configure when this workflow will be triggered
+on:
+  # Trigger on pull request events
+  pull_request:
+    # Specify which pull request actions will trigger this workflow:
+    # - opened: When a new PR is created
+    # - synchronize: When new commits are pushed to the PR
+    # - reopened: When a closed PR is reopened
+    types: [opened, synchronize, reopened]
+
+jobs:
+  code-review:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: anc95/ChatGPT-CodeReview@main
+      env: ${{ secrets.GITHUB_TOKEN }}
+
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_API_ENDPOINT: https://openrouter.ai/api/v1
+      MODEL: openai/gpt-oss-20b:free
+
+      LANGUAGE: English
+      PROMPT: Please categorize the following code changes into 3 levels: Need to address immediately, Important but not urgent, and Nitpick.
+      top_p: 1
+      temperature: 1
+      max_tokens: 10000
