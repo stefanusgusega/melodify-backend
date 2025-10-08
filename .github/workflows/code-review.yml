@@ -23,14 +23,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: anc95/ChatGPT-CodeReview@main
-      env: ${{ secrets.GITHUB_TOKEN }}
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      OPENAI_API_ENDPOINT: https://openrouter.ai/api/v1
-      MODEL: openai/gpt-oss-20b:free
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        OPENAI_API_ENDPOINT: https://openrouter.ai/api/v1
+        MODEL: openai/gpt-oss-20b:free
 
-      LANGUAGE: "English"
-      PROMPT: "Please categorize the following code changes into 3 levels: Need to address immediately, Important but not urgent, and Nitpick."
-      top_p: 1
-      temperature: 1
-      max_tokens: 10000
+        LANGUAGE: "English"
+        PROMPT: "Please categorize the following code changes into 3 levels: Need to address immediately, Important but not urgent, and Nitpick."
+        top_p: 1
+        temperature: 1
+        max_tokens: 10000
